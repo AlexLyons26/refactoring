@@ -3,7 +3,7 @@ package refactoring;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-
+// creating a connection factory to encapsulate a set of connection configuration parameters that has been defined.
 public class Connect {
 
 	

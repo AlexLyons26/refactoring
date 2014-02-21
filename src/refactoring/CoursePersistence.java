@@ -5,6 +5,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 public class CoursePersistence {
+	//method to create a course and add it to the database
 	public static Course create(String name, int credits) throws Exception {
 		Connection conn = null;
 		try {
@@ -21,7 +22,7 @@ public class CoursePersistence {
 			catch (Exception ignored) {}
 		}
 	}
-
+//method to allow you to find a course.
 	public static Course find(String name) {
 		Connection conn = null;
 		try {

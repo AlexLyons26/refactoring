@@ -9,7 +9,7 @@ public class OfferingPersistence {
 	static String id;
 	private static Course course;
 	private static String daysTimes;
-
+//creating offerings and passing values into the database
 	public static Offering create(Course course, String daysTimesCsv) throws Exception {
 		Connection conn = null;
 		try {
@@ -28,7 +28,7 @@ public class OfferingPersistence {
 			catch (Exception ignored) {}
 		}
 	}
-
+//finds an offering
 	public static Offering find(int id) {
 		Connection conn = null;
 		try {
@@ -50,7 +50,7 @@ public class OfferingPersistence {
 			return null;
 		}
 	}
-	
+	//updating the name.
 	public static void update(Offering offering) throws Exception {
 		Connection conn = null;
 		try {
