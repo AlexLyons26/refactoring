@@ -58,7 +58,7 @@ public class SchedulePersistence {
 			while (result.next()) {
 				int offeringId = result.getInt("OfferingId");
 				Offering offering = OfferingPersistence.find(offeringId);
-				schedule.add(offering);
+				schedule.offerings.add(offering);
 			}
 			return schedule;
 		} 
@@ -92,15 +92,17 @@ public class SchedulePersistence {
 		return result;
 	}
 
-	public void update(Schedule schedule) throws Exception {
+	
+
+	public static void update(Schedule schedule) throws Exception {
 		Connection conn = null;
 		try {
 		
 			Statement statement = conn.createStatement();
-			statement.executeUpdate("DELETE FROM schedule WHERE name = '" + name + "';");
-			for (int i = 0; i < schedule.size(); i++) {
-				Offering offering = (Offering) schedule.get(i);
-				statement.executeUpdate("INSERT INTO schedule VALUES('" + name + "','" + offering.getId() + "');");
+			statement.executeUpdate("DELETE FROM schedule WHERE name = '" + schedule.getName() + "';");
+			for (int i = 0; i < schedule.offerings.size(); i++) {
+				Offering offering = (Offering) schedule.offerings.get(i);
+				statement.executeUpdate("INSERT INTO schedule VALUES('" + schedule.getName() + "','" + offering.getId() + "');");
 			}
 		} 
 		finally {

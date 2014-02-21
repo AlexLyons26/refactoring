@@ -6,9 +6,9 @@ import java.sql.Statement;
 
 public class OfferingPersistence {
 	Connection conn;
-	String id;
-	private Course course;
-	private String daysTimes;
+	static String id;
+	private static Course course;
+	private static String daysTimes;
 
 	public static Offering create(Course course, String daysTimesCsv) throws Exception {
 		Connection conn = null;

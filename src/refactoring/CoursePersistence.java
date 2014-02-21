@@ -46,13 +46,13 @@ public class CoursePersistence {
 	private String name;
 	private String credits;
 	
-	public void update(Course course) throws Exception {
+	public static void update(Course course) throws Exception {
 		Connection conn = null;
 		try {
 			
 			Statement statement = conn.createStatement();
-			statement.executeUpdate("DELETE FROM COURSE WHERE name = '" + name + "';");
-			statement.executeUpdate("INSERT INTO course VALUES('" + name + "','" + credits + "');");
+			statement.executeUpdate("DELETE FROM COURSE WHERE name = '" + course.getName() + "';");
+			statement.executeUpdate("INSERT INTO course VALUES('" + course.getName() + "','" + course.getCredits() + "');");
 		} 
 		finally {
 			try { 

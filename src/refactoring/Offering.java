@@ -29,4 +29,6 @@ public class Offering {
 	public String toString() {
 		return "Offering " + getId() + ": " + getCourse() + " meeting " + getDaysTimes();
 	}
+
+	
 }
