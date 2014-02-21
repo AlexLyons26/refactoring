@@ -11,7 +11,7 @@ public class TestReport extends TestCase {
 	}
 	
 	public void testEmptyReport() throws Exception {
-		Schedule.deleteAll();
+		SchedulePersistence.deleteAll();
 		Report report = new Report();
 		StringBuffer buffer = new StringBuffer();
 		report.write(buffer);
@@ -19,18 +19,18 @@ public class TestReport extends TestCase {
 	}
 	
 	public void testReport() throws Exception {
-		Schedule.deleteAll();
-		Course cs101 = Course.create("CS101", 3);
+		SchedulePersistence.deleteAll();
+		Course cs101 = CoursePersistence.create("CS101", 3);
 		cs101.update();
-		Offering off1 = Offering.create(cs101, "M10");
+		Offering off1 = OfferingPersistence.create(cs101, "M10");
 		off1.update();
-		Offering off2 = Offering.create(cs101, "T9");
+		Offering off2 = OfferingPersistence.create(cs101, "T9");
 		off2.update();
-		Schedule s = Schedule.create("Bob");
+		Schedule s = SchedulePersistence.create("Bob");
 		s.add(off1);
 		s.add(off2);
 		s.update();
-		Schedule s2 = Schedule.create("Alice");
+		Schedule s2 = SchedulePersistence.create("Alice");
 		s2.add(off1);
 		s2.update();
 		Report report = new Report();
